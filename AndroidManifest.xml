@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.blue.sky.apk.manager"
+          android:versionCode="3"
+          android:versionName="3.0">
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+    <application android:label="@string/app_name"
+                 android:theme="@android:style/Theme.NoTitleBar"
+                 android:icon="@drawable/ic_launcher">
+        <activity android:name="com.blue.sky.apk.manager.ApkMainActivity"
+                  android:screenOrientation="portrait"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:theme="@android:style/Theme.NoTitleBar"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.blue.sky.control.qrcode.CaptureActivity"
+                  android:screenOrientation="landscape"
+                  android:configChanges="orientation|keyboardHidden"
+                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+                  android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+
+        <activity
+                android:name="com.wandoujia.ads.sdk.AppWallActivity"
+                android:launchMode="singleTop"
+                android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity
+                android:name="com.wandoujia.ads.sdk.AppWidgetContainerActivity"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <activity android:name="com.wandoujia.ads.sdk.InterstitialAdActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                  android:configChanges="orientation|keyboardHidden|screenSize"/>
+
+        <service android:name="com.wandoujia.ads.sdk.DownloadService"/>
+
+        <receiver android:name="com.wandoujia.ads.sdk.AppChangedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+</manifest>
